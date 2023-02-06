@@ -1,0 +1,140 @@
+@import "./fonts.css";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--heading-font: "Fraunces";
+	--main-color: #fefcf7;
+	--secondary-color: #333d4b;
+	--third-color: #fdd6ba;
+	--secondary-bg: #0e8784;
+}
+
+body {
+	font-family: "Barlow";
+	overflow-x: hidden;
+}
+
+.container {
+	max-width: 1338px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+nav {
+	padding: 45px 0 34px 0;
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navbar__menu {
+	display: flex;
+	align-items: center;
+	column-gap: 33px;
+}
+
+.navbar__menu-item {
+	list-style: none;
+}
+
+.navbar__menu-link {
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 15px;
+	text-transform: uppercase;
+	color: #83888f;
+}
+
+.navbar__btn {
+	background: none;
+	border: none;
+	display: none;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+.navbar__menu-item:nth-child(4) {
+	display: none;
+}
+
+.cards {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card {
+	max-width: 255px;
+	text-align: center;
+}
+
+.card__image {
+	width: 100%;
+}
+
+.card__texts {
+	margin-top: 71px;
+}
+
+.card__texts-title {
+	font-family: "Fraunces";
+	font-weight: 900;
+	font-size: 24px;
+	line-height: 32px;
+	color: var(--secondary-color);
+	margin-bottom: 24px;
+}
+
+@media screen and (max-width: 576px) {
+	.navbar__btn {
+		display: block;
+	}
+
+	.navbar__menu {
+		flex-direction: column;
+		background: var(--main-color);
+		position: absolute;
+		z-index: 10;
+		width: 100%;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		justify-content: center;
+		row-gap: 32px;
+		transform: translateY(-100%);
+		transition: 0.5s;
+	}
+
+	.navbar__menu-link {
+		font-family: "Fraunces";
+		font-weight: 900;
+		font-size: 24px;
+		line-height: 32px;
+		text-align: center;
+		color: var(--secondary-color);
+	}
+
+	.inputCheckbox:checked ~ .navbar__menu {
+		transform: translateY(0);
+	}
+
+	.navbar__menu-item:nth-child(4) {
+		display: block;
+	}
+
+	.navbar__menu-remove {
+		position: absolute;
+		top: 35px;
+		right: 25px;
+	}
+}

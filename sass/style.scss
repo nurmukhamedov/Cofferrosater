@@ -1,0 +1,77 @@
+$back-section: #2C343E;
+$card-back: #0E8784;
+
+@mixin for-large-tablet {
+    @media (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin for-phone {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
+
+.service {
+    background-color: $back-section;
+    border-radius: 10px;
+    padding: 100px 85px 0 85px;
+    text-align: center;
+
+    @include for-phone() {
+        padding: 64px 24px 0 24px;
+    }
+
+    &__title {
+        font-family: 'Fraunces';
+        font-weight: 900;
+        font-size: 40px;
+        line-height: 48px;
+        color: #FEFCF7
+    }
+
+    &__text {
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    &__cards {
+        display: flex;
+        column-gap: 30px;
+        position: relative;
+        top: 200px;
+
+        @include for-large-tablet() {
+            flex-direction: column;
+            align-items: center;
+            row-gap: 24px;
+        }
+
+        &-item {
+            max-width: 350px;
+            min-height: 382px;
+            background-color: $card-back;
+            padding: 72px 48px 48px 48px;
+            border-radius: 8px;
+
+            @include for-large-tablet() {
+                max-width: 573px;
+                min-height: 180px;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                column-gap: 55px;
+            }
+
+            @include for-phone() {
+                flex-direction: column;
+                text-align: center;
+                max-width: 279px;
+                min-height: 382px;
+                padding: 72px 35px 51px 35px;
+                top: 64px;
+            }
+        }
+    }
+}
